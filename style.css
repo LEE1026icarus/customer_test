@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.report-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.report-title {
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.report-date {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.report-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Streamlit 기본 스타일 오버라이드 */
+.stButton>button {
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+}
+
+.stTextInput>div>div>input, .stTextArea textarea {
+    background-color: #f0f3f6;
+}
+
+.stSelectbox>div>div>select {
+    background-color: #f0f3f6;
+}
