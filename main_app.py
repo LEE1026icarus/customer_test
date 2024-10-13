@@ -344,7 +344,7 @@ def upload_page(part_name):
 
             # Progress bar 업데이트
             for percent_complete in range(100):
-                time.sleep(0.2)  # 0.1초마다 업데이트 (총 10초)
+                time.sleep(0.55)  # 0.1초마다 업데이트 (총 10초)
                 progress_bar.progress(percent_complete + 1)
                 status_text.text(f"{progress_text} {percent_complete + 1}%")
 
