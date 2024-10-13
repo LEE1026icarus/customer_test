@@ -1,5 +1,5 @@
-streamlit
+streamlit==1.39.0
 pandas
-openai
+openai==0.28.0
 python-dotenv
-openpyxl
+openpyxl==3.1.5
