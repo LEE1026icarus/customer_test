@@ -187,7 +187,7 @@ def generate_prompt(data, user_prompt):
         }},
         {{
           "step": 5,
-          "title": "편향되지 않은 결론 도출",
+          "title": "최종 결론 도출",
           "tasks": [
             "각 단계의 주요 결과 정리",
             "결과의 편향성 검토",
