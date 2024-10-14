@@ -357,9 +357,10 @@ def upload_page(part_name):
             st.success(f"{part_name} 분석이 완료되었습니다!")
             
             # 리포트 표시
+            korea_tz = pytz.timezone('Asia/Seoul')
             report_content = report_template.format(
                 title=f"{part_name} 분석 리포트",
-                date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                date=datetime.now(korea_tz).strftime("%Y-%m-%d %H:%M:%S KST"),
                 content=analysis_result.replace('\n', '<br>')
             )
             st.markdown(report_content, unsafe_allow_html=True)
