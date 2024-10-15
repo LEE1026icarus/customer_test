@@ -183,24 +183,45 @@ def history_page():
     st.markdown("---")
     
     st.write("Sorry, No data found :sweat_smile:")  # 실제 데이터를 불러오는 방식으로 변경 가능
+    
+# 고객제표 시각화 페이지
+def customer_statements_visualization():
+    st.title("고객제표 시각화")
+    st.image("dash.png", use_column_width=True)
+    st.write("이 페이지는 고객제표의 시각화를 보여줍니다.")
+    st.write("추가적인 설명이나 분석을 여기에 포함할 수 있습니다.")
 
 # Streamlit 시작
 if __name__ == "__main__":
-    st.set_page_config(layout="wide", page_title="AI 고객제표 분석")
+    st.set_page_config(layout="wide", page_title="AI 고객제표 분석", theme="light")
     local_css("style.css")  # CSS 파일 로드
+    
+    if 'page' not in st.session_state:
+        st.session_state['page'] = 'home'
     
     if st.session_state['logged_in']:
         st.sidebar.title(":pushpin: 메뉴")
         selection = st.sidebar.radio("접속할 탭을 선택하세요.", ["홈 화면", "과거 분석 내역"])
         
         if selection == "홈 화면":
-            home_page()
+            st.session_state['page'] = 'home'
         elif selection == "과거 분석 내역":
-            history_page()
+            st.session_state['page'] = 'history'
 
         st.sidebar.markdown("---")
-        st.sidebar.markdown("**:link: 외부 리소스**")
-        st.sidebar.write("[Google Looker studio](https://cloud.google.com/looker-studio/)")
+        st.sidebar.markdown("**:bar_chart: 고객제표 시각화**")
+        
+        # 고객제표 시각화 버튼
+        if st.sidebar.button("고객제표 시각화 보기"):
+            st.session_state['page'] = 'visualization'
+        
+        # 페이지 렌더링
+        if st.session_state['page'] == 'home':
+            home_page()
+        elif st.session_state['page'] == 'history':
+            history_page()
+        elif st.session_state['page'] == 'visualization':
+            customer_statements_visualization()
         
     else:
         login()
