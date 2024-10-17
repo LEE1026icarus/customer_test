@@ -193,7 +193,7 @@ def customer_statements_visualization():
 
 # Streamlit 시작
 if __name__ == "__main__":
-    st.set_page_config(layout="wide", page_title="AI 고객제표 분석",theme="light" )
+    st.set_page_config(layout="wide", page_title="AI 고객제표 분석" )
     local_css("style.css")  # CSS 파일 로드
     
     if st.session_state['logged_in']:
