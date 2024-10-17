@@ -193,35 +193,21 @@ def customer_statements_visualization():
 
 # Streamlit 시작
 if __name__ == "__main__":
-    st.set_page_config(layout="wide", page_title="AI 고객제표 분석")
+    st.set_page_config(layout="wide", page_title="AI 고객제표 분석",theme="light" )
     local_css("style.css")  # CSS 파일 로드
-    
-    if 'page' not in st.session_state:
-        st.session_state['page'] = 'home'
     
     if st.session_state['logged_in']:
         st.sidebar.title(":pushpin: 메뉴")
         selection = st.sidebar.radio("접속할 탭을 선택하세요.", ["홈 화면", "과거 분석 내역"])
         
         if selection == "홈 화면":
-            st.session_state['page'] = 'home'
+            home_page()
         elif selection == "과거 분석 내역":
-            st.session_state['page'] = 'history'
+            history_page()
 
         st.sidebar.markdown("---")
-        st.sidebar.markdown("**:bar_chart: 고객제표 시각화**")
-        
-        # 고객제표 시각화 버튼
-        if st.sidebar.button("고객제표 시각화 보기"):
-            st.session_state['page'] = 'visualization'
-        
-        # 페이지 렌더링
-        if st.session_state['page'] == 'home':
-            home_page()
-        elif st.session_state['page'] == 'history':
-            history_page()
-        elif st.session_state['page'] == 'visualization':
-            customer_statements_visualization()
+        st.sidebar.markdown("**:link: 외부 리소스**")
+        st.sidebar.write("[고객제표 시각화](https://public.tableau.com/app/profile/.53515506/viz/_10_17/1?publish=yes)")
         
     else:
         login()
